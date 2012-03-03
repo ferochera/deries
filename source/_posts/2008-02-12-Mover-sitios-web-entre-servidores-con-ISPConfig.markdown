@@ -1,0 +1,11 @@
+---
+layout: post
+title: Mover sitios web entre servidores con ISPConfig
+categories:
+- mini-servidor
+permalink: /archives/21-Mover-sitios-web-entre-servidores-con-ISPConfig.html
+s9y_link: http://xarx.es/deries/archives/21-Mover-sitios-web-entre-servidores-con-ISPConfig.html
+date: 2008-02-12 19:31:33.000000000 +01:00
+---
+<br />
+<p>Esta entrada es básicamente la traducción de la <a href="http://www.howtoforge.com/forums/showthread.php?t=2717" title="Forum Howtoforge: Moving ISPconfig">entrada del forum en Howtoforge.com</a> donde falko lo explica...</p><p>Partimos de un servidor en &quot;producción&quot; y otro limpio (desde ispconfig.org se puede acceder a las guías de instalación).</p><p>1-. Crear una copia de los archivos:<br />/etc/passwd, /etc/shadow, /etc/group, <br />Vhosts_ispconfig.conf (situado /etc/apache2/vhosts para debian, ubuntu,...), /etc/postfix/local-host-names, /etc/postfix/virtusertable, <br />named.conf y todos los archivos de zona pri.* (¿situados en /etc/bind9/?) y los archivos /etc/proftpd/proftpd*.conf</p><p>2-. Crear una copia de seguridad de las bases de datos. Se puede usar phpMyAdmin si está disponible o si no se puede usar mysqldump desde la consola:</p><blockquote><div align="left">mysqldump -h localhost -u usuario -pcontraseñadeeseusuario -c --add-drop-table --add-locks --all --quick --lock-tables --databases db1 db2 db3 &gt; sqldump.sql</div></blockquote><p>Donde debe observarse que entre -p y la contraseña no hay espacio (si no se pone nada la aplicación la pregunta), que el usuario debe tener suficientes permisos (lo normal es usar el usuario root de acceso al mysql), que si solo se quiere volcar una base de datos se puede quitar --databases y poner solo el nombre de la base de datos deseada.</p><div align="left"></div><div align="left"><p /><p>3- crear una copia de la carpeta raíz del servidor web (ej /var/www para ubuntu) <b>conservando los propietarios y los permisos</b>. Para ello se usa la opción -p con tar:</p><blockquote><div align="left">cd /var; tar -pcjvf www.tar.bz2 www/</div></blockquote></div> <br /><a href="http://xarx.es/deries/archives/21-Mover-sitios-web-entre-servidores-con-ISPConfig.html#extended">Continua leyendo "Mover sitios web entre servidores con ISPConfig"</a>

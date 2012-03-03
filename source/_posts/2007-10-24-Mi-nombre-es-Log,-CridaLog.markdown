@@ -1,0 +1,11 @@
+---
+layout: post
+title: Mi nombre es Log, CridaLog
+categories:
+- CridaLog
+permalink: /archives/6-Mi-nombre-es-Log,-CridaLog.html
+s9y_link: http://xarx.es/deries/archives/6-Mi-nombre-es-Log,-CridaLog.html
+date: 2007-10-24 19:21:26.000000000 +02:00
+---
+La función de esta aplicación es la de registrar llamadas telefónicas desde S.O. Windows (XP).<br />
+<div align="justify"><p>¿Por qué Windows? Porque es el S.O. del equipo donde está el modem (voicemodem, por supuesto) y cercano a la roseta.</p><p>El planteamiento inicial es utilizar .NET (aunque en teoría no soporte el uso de las librerías que necesitamos) en conjunto con las librerías TAPI3.</p><p>Para desarrollar utilizaremos el IDE libre <a title="SharpDevelop" target="_blank" href="http://www.icsharpcode.net/OpenSource/SD/">SharpDevelop</a>. Éste permite trabajar con C#, Boo y VB. Si no conoces alguno de ellos sugiero la utilización de la <a title="Viquipedia - Wikipedia" target="_blank" href="www.viquipedia.org">W/Vikipedia</a>. También voy a utilizar la Biblioteca de <a title="el Guille - La Web de Visual Basic, C#, .NET y más..." href="http://www.elguille.info/">elGuille</a> para acceder a la configuración en xml.</p><p>No está mal el objetivo. Sobre todo teniendo en cuenta que nunca he programado en C#. Lo he elegido por la existencia de algunos ejemplos en <a title="C# y TAPI. Ejemplos" target="_blank" href="http://www.codeproject.com/cs/internet/devangpro.asp">CodeProject.com</a></p><p>Estado actual...</p><ul><li>Conseguido:</li><ul><li>Bien poco... conocer SharpDevelop, conocer algo de C#, sus archivos de configuración, la clase de elGuille, etc.</li></ul><li>Por Hacer:</li><ul><li>Desarrollar una aplicación de consola básica que me permita evaluar si el sistema es factible o no.</li><li>Aprender como guarda los sonidos para tratar de incluir la librería lame de codificación en mp3 u ogg.</li><li>Tratar de juntarlo todo en una aplicación que solo tenga un NotifyIcon o que tenga la estructura de servicio.</li></ul></ul>Como puede verse estamos en los momentos iniciales del tema. Y se prevee difícil el camino. Lo único bueno es que ya tengo nombre para la aplicación <img src="http://xarx.es/deries/templates/default/img/emoticons/wink.png" alt=";-)" style="display: inline; vertical-align: bottom;" class="emoticon" /></div>

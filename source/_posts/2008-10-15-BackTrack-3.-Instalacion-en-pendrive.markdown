@@ -1,0 +1,13 @@
+---
+layout: post
+title: BackTrack 3. Instalación en pendrive
+categories:
+- Cuaderno-Laboratorio
+- General
+permalink: /archives/32-BackTrack-3.-Instalacion-en-pendrive.html
+s9y_link: http://xarx.es/deries/archives/32-BackTrack-3.-Instalacion-en-pendrive.html
+date: 2008-10-15 08:51:55.000000000 +02:00
+---
+<br />
+<p>Si no conoces Backtrack quizá deberías visitar la web de <a href="http://www.remote-exploit.org/backtrack.html" title="Backtrack en remote-exploit.org"><b>remote-exploit.</b></a></p><br />
+<p>Vamos a instalarla en un pendrive (de 1GB o mayor para que quepa). Los pasos son los siguientes:</p><p>1-. Bajamos el iso (<a href="http://www.remote-exploit.org/cgi-bin/fileget?version=bt3-usb">bt3final_usb.iso</a>)</p><p>2-. Copiamos el contenido al disco usb (damos por hecho que previamente el disco está vacío y particionado con una partición fat (o fat32). Para copiarlo podemos abrir el iso con, por ejemplo, winrar si lo hacemos en Ms Windows, o podemos montarlo en modo loop en gnu/linux (mount -o loop bt3final_usb.iso bt3/). Una vez tenemos el contenido disponible lo copiamos al disco usb.</p><p>3-. Hacer el pendrive arrancable. Para ello ejecutamos un script (bootinst.bat en Windows o bootinst.sh en gnu/linux). Es posible que necesitemos disponer de permisos de administrador. En principio no debería haber problemas pero se impone leer con atención los mensajes que muestra el script.</p><p>Para más detalles visita el <a href="http://wiki.remote-exploit.org/" title="Wiki de Remote-Exploit.org">wiki de remote-exploit.org</a></p><p>Información extraida de <a href="http://lucas-coudures.blogspot.com/2008/07/instalar-backtrack-3-final.html">http://lucas-coudures.blogspot.com/2008/07/instalar-backtrack-3-final.html</a></p><br />
