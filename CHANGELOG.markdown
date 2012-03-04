@@ -1,3 +1,9 @@
+# Dèries
+
+Blog basado en Octopress (ver más abajo). Parte de los posts están trasladados desde Serendipity (s9y) utilizando [https://github.com/mojombo/jekyll/pull/399](https://github.com/mojombo/jekyll/pull/399)
+
+La idea es traducir algunas partes al castellano. Y quizá investigar como hacer posts multilenguaje.
+
 # Octopress Changelog
 
 ## 2.0
