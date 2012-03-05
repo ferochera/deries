@@ -1,0 +1,60 @@
+--- ../../../var/www/pedidos/datagrid/datagrid.class.php	2007-10-25 10:27:56.000000000 +0200
++++ ../../../var/www/mimeteo/datagrid420/datagrid.class.php	2007-11-07 09:57:18.000000000 +0100
+@@ -614,6 +614,6 @@ class DataGrid
+         $this->multi_rows = 0;
+         $this->multirow_operations_array = array();        
+-        $this->multirow_operations_array['delete'] = array("view"=>true);
+-        $this->multirow_operations_array['details'] = array("view"=>true);
++        //$this->multirow_operations_array['delete'] = array("view"=>true);  //FERNANDO: habilitarlos explicitamente
++        //$this->multirow_operations_array['details'] = array("view"=>true);
+ 
+         $this->first_field_focus_allowed = false;
+@@ -1101,5 +1101,6 @@ class DataGrid
+             $this->sql_sort = " ORDER BY " . $this->primary_key . " DESC";
+             if(($this->layouts['view'] == 0) && ($this->layouts['edit'] == 1) && ($req_mode == "details")){
+-                $this->rids = explode("-", $this->rid);
++                //$this->rids = explode("-", $this->rid); //FERNANDO
++		$this->rids = explode("_", $this->rid);
+                 // if we have more that 1 row selected
+                 if(count($this->rids) > 1){ 
+@@ -1115,5 +1116,6 @@ class DataGrid
+                 $this->sql = "SELECT * FROM $this->tbl_name ".$where;                 
+             }else if(($this->layouts['view'] == 0) && ($this->layouts['edit'] == 1) && ($req_mode == "edit")){
+-                $this->rids = explode("-", $this->rid);
++                //$this->rids = explode("-", $this->rid); //FERNANDO
++		$this->rids = explode("_", $this->rid);
+                 // if we have more that 1 row selected
+                 // mr_1 
+@@ -1131,5 +1133,6 @@ class DataGrid
+             }else if(($this->layouts['view'] == 0) && ($this->layouts['edit'] == 0) && ($req_mode == "details")){                
+                 // if we have more that 1 row selected
+-                $this->rids = explode("-", $this->rid);
++                //$this->rids = explode("-", $this->rid); //FERNANDO
++		$this->rids = explode("_", $this->rid);
+                 if(count($this->rids) > 1){ 
+                     $where = "WHERE ".$this->primary_key." IN (-1 ";
+@@ -2685,5 +2688,6 @@ class DataGrid
+                     for(i=".$this->row_lower."; i < ".$this->row_upper."; i++){
+                         if(document.getElementById(\"".$this->unique_prefix."checkbox_\"+i).checked == true){
+-                            if(found == 1){ selected_rows_ids += '-'; }
++                            //if(found == 1){ selected_rows_ids += '-'; }
++                            if(found == 1){ selected_rows_ids += '_'; }
+                             selected_rows_ids += document.getElementById(\"".$this->unique_prefix."checkbox_\"+i).value;
+                             found = 1;
+@@ -3231,5 +3235,6 @@ class DataGrid
+     //--------------------------------------------------------------------------
+     function deleteRow($rid){
+-        $this->rids = explode("-", $rid);
++        //$this->rids = explode("-", $rid); //FERNANDO
++	$this->rids = explode("_", $this->rid);
+         $sql = "DELETE FROM $this->tbl_name WHERE $this->primary_key IN (-1 ";         
+         foreach ($this->rids as $key){
+@@ -4026,5 +4031,7 @@ class DataGrid
+                         break;
+                     case "linktoview";
+-                        $curr_url = $this->combineUrl("details", intval($row[(($this->getFieldOffset($this->primary_key) != -1) ? $this->getFieldOffset($this->primary_key) : 0)]));                         
++			//FERNANDO: Retiro intval porque si la clave no es un entero se jode el invento.
++                        //$curr_url = $this->combineUrl("details", intval($row[(($this->getFieldOffset($this->primary_key) != -1) ? $this->getFieldOffset($this->primary_key) : 0)]));
++                        $curr_url = $this->combineUrl("details", $row[(($this->getFieldOffset($this->primary_key) != -1) ? $this->getFieldOffset($this->primary_key) : 0)]);
+                         $this->setUrlStringPaging($curr_url);
+                         $this->setUrlStringSorting($curr_url);

@@ -1,0 +1,138 @@
+--- home/planet/Desktop/datagrid420/datagrid.class.php	2007-09-29 04:09:50.000000000 +0200
++++ var/www/pedidos/datagrid/datagrid.class.php	2007-10-25 10:27:56.000000000 +0200
+@@ -1359,9 +1361,13 @@ class DataGrid
+                         $filter_field_operator =  $table_field_name."_operator";                        
+                         if(isset($fldValue['case_sensitive']) && ($fldValue['case_sensitive'] != true)){
+                             $fldTableField = $this->getLcaseFooByDbType()."(".(($fldValue['table'] != "") ? $fldValue['table']."." : "" ).$fldValue['field'].")";
++                            if(strpos($fldTableField,'_')!==false) 
++				$fldTableField=str_replace("_",".",$fldTableField);
+                             $fldTableFieldName = strtolower($_REQUEST[$this->unique_prefix."_ff_".$table_field_name]);
+                         }else{
+                             $fldTableField = (($fldValue['table'] != "") ? $fldValue['table']."." : "" ).$fldValue['field'];                            
++                            if(strpos($fldTableField,'_')!==false) 
++				$fldTableField=str_replace("_",".",$fldTableField);
+                             $fldTableFieldName = $_REQUEST[$this->unique_prefix."_ff_".$table_field_name];
+                         }
+                         if(isset($fldValue['comparison_type']) && (strtolower($fldValue['comparison_type']) == "numeric")){
+@@ -1378,6 +1384,8 @@ class DataGrid
+                                 $this->sql_view .= " $search_type_start $fldTableField ".substr($_REQUEST[$this->unique_prefix."_ff_".$filter_field_operator], 0, 4)." ".$comparison_type." '".$fldTableFieldName."%'";
+                             }else if($_REQUEST[$this->unique_prefix."_ff_".$filter_field_operator] == "%like"){
+                                 $this->sql_view .= " $search_type_start $fldTableField ".substr($_REQUEST[$this->unique_prefix."_ff_".$filter_field_operator], 1, 4)." ".$comparison_type." '%".$fldTableFieldName."'";
++                            }else if($_REQUEST[$this->unique_prefix."_ff_".$filter_field_operator] == "%like%"){
++                                $this->sql_view .= " $search_type_start $fldTableField ".substr($_REQUEST[$this->unique_prefix."_ff_".$filter_field_operator], 1, 4)." ".$comparison_type." '%".$fldTableFieldName."%'";
+                             }else{
+                                 $this->sql_view .= " $search_type_start $fldTableField ".$_REQUEST[$this->unique_prefix."_ff_".$filter_field_operator]." $left_geresh".$fldTableFieldName."$left_geresh ";
+                             }
+@@ -1773,7 +1781,7 @@ class DataGrid
+             }                        
+             fclose($fe);
+             echo "<script type='text/javascript'>\n<!--\n "
+-            ."if(confirm('Do you want to export datagrid content into export.csv file?')){ "
++            ."if(confirm('".$this->lang['export_to_excel_confirm']."')){ "
+             ." document.write('".str_replace("_FILE_", "export.csv", $this->lang['export_message'])."'); "            
+             ." document.location = '".$this->directory."scripts/download.php?dir=".$this->directory."&file=export.csv'; "
+             ."} else {"
+@@ -1824,7 +1832,7 @@ class DataGrid
+             fclose($fe);
+             
+             echo "<script type='text/javascript'>\n<!--\n "
+-            ."if(confirm('Do you want to export datagrid content into export.xml file?')){ "
++            ."if(confirm('".$this->lang['export_to_xml_confirm']."')){ "
+             ." document.write('".str_replace("_FILE_", "export.xml", $this->lang['export_message'])."'); "            
+             ." document.location = '".$this->directory."scripts/download.php?dir=".$this->directory."&file=export.xml'; "
+             ."} else {"
+@@ -1897,6 +1905,7 @@ class DataGrid
+                         echo "<option value='like'"; echo ($filter_operator == "like")? "selected" : ""; echo ">".$this->lang['like']."</option>";
+                         echo "<option value='like%'"; echo ($filter_operator == "like%")? "selected" : ""; echo ">".$this->lang['like%']."</option>";
+                         echo "<option value='%like'"; echo ($filter_operator == "%like")? "selected" : ""; echo ">".$this->lang['%like']."</option>";
++                        echo "<option value='%like%'"; echo ($filter_operator == "%like%")? "selected" : ""; echo ">".$this->lang['%like%']."</option>";
+                         echo "<option value='not like'"; echo ($filter_operator == "not like")? "selected" : ""; echo ">".$this->lang['not_like']."</option>";
+                         echo "</select>";
+                     }else{
+@@ -2104,7 +2113,7 @@ class DataGrid
+                                         if($this->isDate($field_name)){ $href_string .= "desc"; }
+                                         else{ $href_string .= "asc"; }                                        
+                                     }                                    
+-                                    echo "<nobr><b><a class='".$this->unique_prefix."class_a' href='$href_string' title='Sort' ";
++                                    echo "<nobr><b><a class='".$this->unique_prefix."class_a' href='$href_string' title='".$this->lang['sort']."' ";
+                                     if($req_sort_field && ($c == ($req_sort_field -1))){
+                                         echo "onmouseover=\"if(document.getElementById('soimg".$c."')){ document.getElementById('soimg".$c."').src='".$sort_img_back."';  }\" ";
+                                         echo "onmouseout=\"if(document.getElementById('soimg".$c."')){ document.getElementById('soimg".$c."').src='".$sort_img."';  }\" ";                                
+@@ -4084,6 +4093,13 @@ class DataGrid
+                             }
+                             echo "<input class='class_checkbox' type='checkbox' name='".$this->getFieldRequiredType($field_name).$field_name."' id='".$this->getFieldRequiredType($field_name).$field_name."' title='".$this->getFieldTitle($field_name)."' value='".trim($field_value)."' ".$checked." ".$readonly." ".$on_js_event.">".$this->nbsp;
+                             break;                                                
++                        //FERNANDO incluyo tipo sha1...FALTA ACABAR
++                        case "passwdhash":
++                            $ret_hash =$this->nbsp."<input class='class_textbox' ".$field_width." type='text' title='".$this->getFieldTitle($field_name)."' name='".$this->getFieldRequiredType($field_name).$field_name."' value='".trim($field_value)."' $field_maxlength ".$on_js_event.">";
++                            //if(!$readonly) $ret_hash .= "<a class='".$this->unique_prefix."class_a2' title='".$this->getFieldTitle($field_name)."' href=\"#\" onclick=\"javascript:alert(".$this->unique_prefix."computaHash('hola'));\" ><img src='".$this->directory."images/".$this->css_class."/llave.png' border='0' alt='".$this->lang['set_hash_pswd']."' title='".$this->lang['set_hash_pswd']."' align='top' style='margin:3px;margin-left:6px;margin-right:6px;' /></a>".$this->nbsp;
++                            if(!$readonly) $ret_hash .= "<a class='".$this->unique_prefix."class_a2' title='".$this->getFieldTitle($field_name)."' href=\"javascript:;\" onclick='document.".$this->unique_prefix."frmEditRow.".$this->getFieldRequiredType($field_name).$field_name.".value=".$this->unique_prefix."computaHash(document.".$this->unique_prefix."frmEditRow.".$this->getFieldRequiredType($field_name).$field_name.".value);'><img src='".$this->directory."images/".$this->css_class."/llave.png' border='0' alt='".$this->lang['set_hash_pswd']."' title='".$this->lang['set_hash_pswd']."' align='top' style='margin:3px;margin-left:6px;margin-right:6px;' /></a>".$this->nbsp;
++                            return $ret_hash;
++                            break;
+                         case "date":
+                             $ret_date  = $this->nbsp."<input class='class_textbox' ".$field_width." readonly type='text' title='".$this->getFieldTitle($field_name)."' name='".$this->getFieldRequiredType($field_name).$field_name."' value='".trim($field_value)."' $field_maxlength ".$on_js_event.">";
+                             if(!$readonly) $ret_date .= "<a class='".$this->unique_prefix."class_a2' title='".$this->getFieldTitle($field_name)."' href=\"javascript: ".$this->unique_prefix."openCalendar('', '".$this->unique_prefix."frmEditRow', '$field_req_type', '".$field_name."', '$field_type')\"><img src='".$this->directory."images/".$this->css_class."/cal.gif' border='0' alt='".$this->lang['set_date']."' title='".$this->lang['set_date']."' align='top' style='margin:3px;margin-left:6px;margin-right:6px;' /></a>".$this->nbsp;
+@@ -4630,6 +4646,8 @@ class DataGrid
+         $req_print = $this->getVariable('print');
+         if($type == ""){
+             $mode_type = (isset($this->modes[$mode]['type'])) ? $this->modes[$mode]['type'] : "";
++            //FERNANDO. HACIENDO QUE EL MODO EDIT SIEMPRE SEAN LINKS
++            if (($this->layout_type == "edit")&&($this->mode=="edit")) $mode_type="link";
+         }else{
+             $mode_type = $type;
+         }
+@@ -4716,6 +4734,12 @@ class DataGrid
+                 echo "\n<script type='text/javascript' src='".$this->directory."scripts/resize.js'></script>";                
+             }
+         }
++        // FERNANDO FUNCIONES DE HASH SHA1
++        if (!file_exists($this->directory.'scripts/hash.js')) {            
++            echo "<label class='class_error_message no_print'>Cannot find file: <b>".$this->directory."scripts/hash.js</b>. Check if this file exists and you use a correct path!</label><br /><br />";
++        }else{
++            echo "\n<script type='text/javascript' src='".$this->directory."scripts/hash.js'></script>";
++        }
+         
+         // set WYSIWYG
+         echo "\n<script type='text/javascript'>\n";
+@@ -4747,6 +4771,21 @@ class DataGrid
+         }";
+         echo "\n//-->\n";
+         echo "</script>";                
++        
++        // FERNANDO 
++        echo "<script type='text/javascript'>\n";
++        echo "<!--\n";
++        echo "function ".$this->unique_prefix."computaHash(valorprevio) {"
++            .$this->unique_prefix."respuesta= prompt(\"".$this->lang['intro_text_tohash']."\",\"\");
++            if(".$this->unique_prefix."respuesta!=\"\") 
++                ".$this->unique_prefix."respuesta=hex_sha1(".$this->unique_prefix."respuesta); 
++            else  
++            	".$this->unique_prefix."respuesta=valorprevio;
++            return ".$this->unique_prefix."respuesta;
++        }";
++        echo "\n//-->\n";
++        echo "</script>";                
++
+     }
+   
+     function setCommonJavaScriptEnd(){
+@@ -5067,6 +5106,7 @@ class DataGrid
+             $this->lang['like'] = "like";
+             $this->lang['like%'] = "like%";  // "begins with"; 
+             $this->lang['%like'] = "%like";  // "ends with";
++            $this->lang['%like%'] = "%like%";  // "middle with";
+             $this->lang['loading_data'] = "loading data...";            
+             $this->lang['max'] = "max";                            
+             $this->lang['next'] = "next";
+@@ -5110,6 +5150,11 @@ class DataGrid
+             $this->lang['wrong_field_name'] = "Wrong field name";
+             $this->lang['wrong_parameter_error'] = "Wrong parameter in <b>_FIELD_</b>: _VALUE_";
+             $this->lang['yes'] = "Yes";
++            $this->lang['export_to_excel_confirm'] = "Do you want to export datagrid content into export.cvs file?";
++            $this->lang['export_to_xml_confirm'] = "Do you want to export datagrid content into export.xml file?";
++            $this->lang['set_hash_pswd'] = "Set password to hash";
++            $this->lang['intro_text_tohash'] = "Enter text to hash:";
++            $this->lang['sort'] = "Sort this column";
+         }
+     }
+ 
