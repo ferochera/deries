@@ -1,6 +1,26 @@
 module Octopress
   module Date
 
+    # Traducción de los días y meses de "Vigo"
+    # https://github.com/vigo/octopress/blob/master/plugins/date.rb
+    MONTHNAMES_TR = [nil,
+      "Enero", "Febreto", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ]
+    ABBR_MONTHNAMES_TR = [nil,
+      "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+      "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"
+    ]
+    DAYNAMES_TR = [
+      "Lunes", "Martes", "Mi&eacute;rcoles", "Jueves",
+      "Viernes", "S&aacute;bado", "Domingo"
+    ]
+    ABBR_DAYNAMES_TR = [
+      "Lun", "Mar", "Mi&eacute;", "Jue",
+      "Vie", "S&aacute;b", "Dom"
+    ]
+
+
     # Returns a datetime if the input is a string
     def datetime(date)
       if date.class == String
@@ -36,8 +56,13 @@ module Octopress
       if format.nil? || format.empty? || format == "ordinal"
         date_formatted = ordinalize(date)
       else
+        format.gsub!(/%a/, ABBR_DAYNAMES_TR[date.wday])
+        format.gsub!(/%A/, DAYNAMES_TR[date.wday])
+        format.gsub!(/%b/, ABBR_MONTHNAMES_TR[date.mon])
+        format.gsub!(/%B/, MONTHNAMES_TR[date.mon])
         date_formatted = date.strftime(format)
-        date_formatted.gsub!(/%o/, ordinal(date.strftime('%e').to_i))
+        #date_formatted = date.strftime(format)
+        #date_formatted.gsub!(/%o/, ordinal(date.strftime('%e').to_i))
       end
       date_formatted
     end
