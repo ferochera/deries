@@ -16,6 +16,7 @@ Vuelvo a incluir los cambios respecto del datagrid &quot;oficial&quot;.
 
 **2-.** Cuando se usa una selección múltiple, los elementos seleccionados se concatenan y se separan con '-'. Yo lo he modificado para que se concatenen con '\_' pues en el caso anterior de 2 datetimes la separación entre año, mes y día era también '-' por lo que había conflictos y los campos no se identificaban correctamente.
 
+Para ver el código y bajarlo es necesario mostrar el artículo completo...<!--more-->
 
 **Los archivos:**
 
