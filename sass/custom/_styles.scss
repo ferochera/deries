@@ -21,8 +21,8 @@ body > header {
     &:after {
       content: "";
       position: absolute; left: 0; right: 10%; top: 10%;
-      height: image-height('xarxa2.png');
-      @include replace-text('xarxa2.png', 80%, 80%);
+      height: image-height('xarxes.png');
+      @include replace-text('xarxes.png', 80%, 80%);
     }
   }
   @media only screen and (min-width: 400px) {
@@ -52,8 +52,8 @@ body > header {
   @media only screen and (min-width: 990px) {
     font-size: 1.1em;
     h1:after {
-      width: image-width('xarxa2.png');
-      height: image-height('xarxa2.png');
+      width: image-width('xarxes.png');
+      height: image-height('xarxes.png');
     }
   }
 }
