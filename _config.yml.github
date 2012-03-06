@@ -46,7 +46,7 @@ newer_text: "Posteriores"
 root: /
 permalink: /:year/:month/:day/:title/
 source: source
-destination: public
+destination: ferochera.github.com
 plugins: plugins
 code_dir: downloads/code
 category_dir: categories

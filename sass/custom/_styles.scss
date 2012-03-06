@@ -15,3 +15,45 @@ blockquote {
 
 pre { font-size: 16px; }
 
+
+body > header {
+  h1 {
+    &:after {
+      content: "";
+      position: absolute; left: 0; right: 10%; top: 10%;
+      height: image-height('xarxa2.png');
+      @include replace-text('xarxa2.png', 80%, 80%);
+    }
+  }
+  @media only screen and (min-width: 400px) {
+    font-size: .82em;
+    hgroup {
+      left: -3.7em;
+      width: 22em;
+    }
+    h1 { padding-bottom: 0;
+      &:after {
+        position: absolute; top: -.15em; right: -.8em; left: auto;
+        width: 1.6em;
+        height: 1.6em;
+        @include background-size(100%);
+      }
+    }
+  }
+  @media only screen and (min-width: 480px) {
+    font-size: .98em;
+    h2 { top: .4em; }
+  }
+  @media only screen and (min-width: 768px) {
+    padding: 2em 0 1.5;
+    font-size: 1.2em;
+    hgroup { padding: 0 0 1em; }
+  }
+  @media only screen and (min-width: 990px) {
+    font-size: 1.1em;
+    h1:after {
+      width: image-width('xarxa2.png');
+      height: image-height('xarxa2.png');
+    }
+  }
+}
