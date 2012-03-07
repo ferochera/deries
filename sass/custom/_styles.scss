@@ -17,16 +17,17 @@ pre { font-size: 16px; }
 
 
 body > header {
-  h1 {
-    &:after {
-      content: "";
-      position: absolute; left: 0; right: 10%; top: 10%;
-      height: image-height('xarxes.png');
-      @include replace-text('xarxes.png', 80%, 80%);
-    }
-  }
+//  h1 {
+//    &:after {
+//      content: "";
+//      position: absolute;
+//      left: 0; right: 10%; top: 10%;
+//      height: image-height('xarxes.png');
+//      @include replace-text('xarxes.png', 80%, 80%);
+//    }
+//  }
   @media only screen and (min-width: 400px) {
-    font-size: .82em;
+   font-size: .82em;
     hgroup {
       left: -3.7em;
       width: 22em;
@@ -36,7 +37,8 @@ body > header {
         position: absolute; top: -.15em; right: -.8em; left: auto;
         width: 1.6em;
         height: 1.6em;
-        @include background-size(100%);
+        //@include background-size(100%);
+	@include background-size(90%);
       }
     }
   }
@@ -50,10 +52,10 @@ body > header {
     hgroup { padding: 0 0 1em; }
   }
   @media only screen and (min-width: 990px) {
-    font-size: 1.1em;
-    h1:after {
-      width: image-width('xarxes.png');
-      height: image-height('xarxes.png');
-    }
+    font-size: 1.5em;
+//    h1:after {
+//      width: image-width('xarxes.png');
+//      height: image-height('xarxes.png');
+//    }
   }
 }

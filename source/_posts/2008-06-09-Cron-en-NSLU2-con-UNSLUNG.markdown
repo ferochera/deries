@@ -13,5 +13,6 @@ bash-3.2# cat dyndnsupd
 # Set the interval of the next IP check using a crontab entry.
 # Once every 15 minutes is good for a home server.
 */15 * * * * root /opt/bin/dyndnsupdate.sh &>/dev/null
+```
 
 <p>Enlaces interantes:</p><ul><li><a href="http://www.nslu2-linux.org/" title="NSLU2-LINUX">NSLU2-LINUX</a><i></i></li></ul>
