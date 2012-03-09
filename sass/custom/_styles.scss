@@ -2,10 +2,10 @@
 // Add styles here to make changes without digging in too much
 
 // los blockquote tenían la letra demasiado grande
-blockquote {
-  font-size: 1em;
-  line-height: 1.1em;
-}
+//blockquote {
+//  font-size: 1em;
+//  line-height: 1.1em;
+//}
 
 //.highlight {
 //  .line-numbers {
@@ -36,7 +36,7 @@ body > header {
       &:after {
         position: absolute; top: -.15em; right: -.8em; left: auto;
         width: 1.6em;
-        height: 1.6em;
+        //height: 1.6em;
         //@include background-size(100%);
 	@include background-size(90%);
       }
