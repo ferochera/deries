@@ -136,7 +136,7 @@ También modifiqué _/plugins/date.rb_ para hacer que la fecha aparezca en caste
 
     (...)
 
-* adaptar algunos estilos
+* adaptar algunos estilos y otras cosas
 
 Por jugar más que otra cosa...
 
@@ -146,9 +146,7 @@ También intenté poner un gráfico tipo el pulpo de octopress pero de momento l
 
 Todos estos cambios pueden verse en el repositorio de github que los contiene: [https://github.com/ferochera/deries](https://github.com/ferochera/deries)
 
-##Lo que me queda por hacer... 
+Finalmente he añadido un _"aside"_ con una nube de etiquetas y también una página de entrada a las categorías que las lista poniendo el número de artículos en cada una.
 
-* que se vean las categorías de un artículo. Ver [http://anthonydigirolamo.github.com/blog/2011/09/21/octopress-category-listing/](http://anthonydigirolamo.github.com/blog/2011/09/21/octopress-category-listing/))
-
-* crear una nube de tags en la sidebar. Ver [https://github.com/tokkonopapa/octopress-tagcloud](https://github.com/tokkonopapa/octopress-tagcloud)
+Ambos elementos vienen del código de nube de tags de [_tokkonopapa_](https://github.com/tokkonopapa/octopress-tagcloud). Eso si ha sido necesario hacer una pequeña modificación en el código ya que los paths no eran correctos.
 
