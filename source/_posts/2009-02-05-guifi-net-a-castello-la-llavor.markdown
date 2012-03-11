@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "guifi.net en Castellón: La semilla"
+title: "guifi.net a Castelló: La llavor"
 date: 2009-02-05 23:33
 comments: true
 categories: guifi.net
