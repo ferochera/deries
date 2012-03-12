@@ -40,3 +40,4 @@ Patch Cables are made of stranded copper conductors for flexibility. This constr
 *    El cable rígido es recomendable cuando está finalizado en rosetas. Cuando debe acabar en un conector rj45 macho debe buscarse uno que no seccione el cable, sino que lo rodee. Este problema no se presenta con el cable flexible.
 *    Para cableado en exteriores debería usarse FTP en vez de UTP por su mayor resistencia al medio ambiente.
 
+![Esquema conectores rj45 dependiendo del tipo de cable](/images/rj45amp.gif)
