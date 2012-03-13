@@ -4,7 +4,7 @@ module Octopress
     # Traducción de los días y meses de "Vigo"
     # https://github.com/vigo/octopress/blob/master/plugins/date.rb
     MONTHNAMES_TR = [nil,
-      "Enero", "Febreto", "Marzo", "Abril", "Mayo", "Junio",
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
       "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
     ]
     ABBR_MONTHNAMES_TR = [nil,
@@ -12,12 +12,12 @@ module Octopress
       "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"
     ]
     DAYNAMES_TR = [
-      "Lunes", "Martes", "Mi&eacute;rcoles", "Jueves",
-      "Viernes", "S&aacute;bado", "Domingo"
+      "Domingo", "Lunes", "Martes", "Mi&eacute;rcoles", "Jueves",
+      "Viernes", "S&aacute;bado"
     ]
     ABBR_DAYNAMES_TR = [
-      "Lun", "Mar", "Mi&eacute;", "Jue",
-      "Vie", "S&aacute;b", "Dom"
+      "Dom", "Lun", "Mar", "Mi&eacute;", "Jue",
+      "Vie", "S&aacute;b"
     ]
 
 
@@ -56,12 +56,14 @@ module Octopress
       if format.nil? || format.empty? || format == "ordinal"
         date_formatted = ordinalize(date)
       else
-        format.gsub!(/%a/, ABBR_DAYNAMES_TR[date.wday])
-        format.gsub!(/%A/, DAYNAMES_TR[date.wday])
-        format.gsub!(/%b/, ABBR_MONTHNAMES_TR[date.mon])
-        format.gsub!(/%B/, MONTHNAMES_TR[date.mon])
+	#these replacings are not working properly!!!! so direct substitution
+        #format.gsub!(/%b/, ABBR_MONTHNAMES_TR[date.mon])
+        #format.gsub!(/%B/, MONTHNAMES_TR[date.mon])
+        #format.gsub!(/%a/, ABBR_DAYNAMES_TR[date.wday])
+        #format.gsub!(/%A/, DAYNAMES_TR[date.wday])
+        #date_formatted = "(" + date.wday.to_s() + ":" + DAYNAMES_TR[date.wday] + ") "+ date.strftime(format)
+	format = DAYNAMES_TR[date.wday] +", %d de " + MONTHNAMES_TR[date.mon] + " de %Y"
         date_formatted = date.strftime(format)
-        #date_formatted = date.strftime(format)
         #date_formatted.gsub!(/%o/, ordinal(date.strftime('%e').to_i))
       end
       date_formatted

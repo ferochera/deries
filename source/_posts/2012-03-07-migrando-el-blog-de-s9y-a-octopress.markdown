@@ -107,7 +107,7 @@ También modifiqué _/plugins/date.rb_ para hacer que la fecha aparezca en caste
 
     (...)
     MONTHNAMES_TR = [nil,
-      "Enero", "Febreto", "Marzo", "Abril", "Mayo", "Junio",
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
       "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
     ]
     ABBR_MONTHNAMES_TR = [nil,
@@ -115,12 +115,12 @@ También modifiqué _/plugins/date.rb_ para hacer que la fecha aparezca en caste
       "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"
     ]
     DAYNAMES_TR = [
-      "Lunes", "Martes", "Mi&eacute;rcoles", "Jueves",
-      "Viernes", "S&aacute;bado", "Domingo"
+      "Domingo", "Lunes", "Martes", "Mi&eacute;rcoles", 
+      "Jueves", "Viernes", "S&aacute;bado"
     ]
     ABBR_DAYNAMES_TR = [
-      "Lun", "Mar", "Mi&eacute;", "Jue",
-      "Vie", "S&aacute;b", "Dom"
+      "Dom", Lun", "Mar", "Mi&eacute;",
+       "Jue", "Vie", "S&aacute;b"
     ]
 
     (...)
@@ -150,3 +150,8 @@ Finalmente he añadido un _"aside"_ con una nube de etiquetas y también una pá
 
 Ambos elementos vienen del código de nube de tags de [_tokkonopapa_](https://github.com/tokkonopapa/octopress-tagcloud). Eso si ha sido necesario hacer una pequeña modificación en el código ya que los paths no eran correctos.
 
+##Actualización..
+
+La traducción de las fechas no está funcionando correctamente... es como si la función gsub! no hiciese lo que toca ¿? así que he decicido poner el formato a mano mientras averiguo que es lo que ocurre.
+
+    format = DAYNAMES_TR[date.wday] +", %d de " + MONTHNAMES_TR[date.mon] + " de %Y"

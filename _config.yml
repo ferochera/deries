@@ -24,6 +24,7 @@ email:
 # Additionally, %o will give you the ordinal representation of the day
 # date_format: "ordinal"
 #date_format: "%-d/%-m/%Y"
+#OJO %A no está funcionando... revisar date.wday
 date_format: "%A, %d de %B de %Y"
 
 
