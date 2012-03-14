@@ -7,55 +7,55 @@
 //  line-height: 1.1em;
 //}
 
-//.highlight {
-//  .line-numbers {
-//    font-size: 16px;
-//  }
-//}
-
-//pre { font-size: 16px; }
-
-
-body > header {
-//  h1 {
-//    &:after {
-//      content: "";
-//      position: absolute;
-//      left: 0; right: 10%; top: 10%;
-//      height: image-height('xarxes.png');
-//      @include replace-text('xarxes.png', 80%, 80%);
-//    }
-//  }
-  @media only screen and (min-width: 400px) {
-   font-size: .82em;
-    hgroup {
-      left: -3.7em;
-      width: 22em;
-    }
-    h1 { padding-bottom: 0;
-      &:after {
-        position: absolute; top: -.15em; right: -.8em; left: auto;
-        width: 1.6em;
-        //height: 1.6em;
-        //@include background-size(100%);
-	@include background-size(90%);
+body > header h1 {
+      //padding-left:2.5em;
+      padding-left:175px;
+      text-align:right;
+      @media only screen and (min-width: 432px) {
+              text-align:left;
       }
-    }
-  }
-  @media only screen and (min-width: 480px) {
-    font-size: .98em;
-    h2 { top: .4em; }
-  }
-  @media only screen and (min-width: 768px) {
-    padding: 2em 0 1.5;
-    font-size: 1.2em;
-    hgroup { padding: 0 0 1em; }
-  }
-  @media only screen and (min-width: 990px) {
-    font-size: 1.5em;
-//    h1:after {
-//      width: image-width('xarxes.png');
-//      height: image-height('xarxes.png');
-//    }
-  }
+      @media only screen and (min-width: 768px) {
+              //padding-left:3em;
+      }
+      @media only screen and (min-width: 992px) {
+              //padding-left:2em;
+      }
 }
+
+body > header h2 {
+      //padding-left:5.62em;
+      padding-left:200px;
+      text-align:right;
+      @media only screen and (min-width: 432px) {
+              text-align:left;
+              //padding-left:3.9em;
+      }
+      @media only screen and (min-width: 768px) {
+              //padding-left:5em;
+      }
+      @media only screen and (min-width: 992px) {
+              //padding-left:2.9em;
+      }
+}
+
+body > header h1:before {
+      content:"";
+      position:absolute;
+      left:0em;
+      right:0;
+      top:1.5em;
+      bottom:1.5em;
+      height:150px;
+      width:150px;
+      overflow:hidden;
+      text-align:right;
+      background-image:url('/deries/images/xarxes150b.png');
+      background-repeat:no-repeat;
+      @media only screen and (min-width: 432px) {
+              top:.32em;
+      }
+      @media only screen and (min-width: 768px) {
+              left:.75em;
+      }
+}
+
