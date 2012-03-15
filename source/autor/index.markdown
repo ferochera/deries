@@ -15,6 +15,6 @@ Fuera de este blog, hay proyectos o sitios que me interesan o con los que estoy 
 * [Mi web en la Universidad Jaume I](http://www3.uji.es/~ochera)
 * [LLIG, Llibres i Gràcia](http://llig.es)
 * [Planetari de Castelló](http://planetari.castello.es)
-* [Estación meteorológica en el Planetari](http://www.castello.es)
+* [Estación meteorológica en el Planetari](http://www.castello.es/archivos/598/img/index.html)
 * [guifi.net en Castelló](http://castello.guifi.net)
 * [Mis proyectos en github](http://github.com/ferochera)
