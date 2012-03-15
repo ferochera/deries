@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Categoría: guifi.net | Xarx.es]]></title>
-  <link href="http://xarx.es/deries/categorias/guifi-net/atom.xml" rel="self"/>
-  <link href="http://xarx.es/deries/"/>
-  <updated>2012-03-15T20:32:16+01:00</updated>
-  <id>http://xarx.es/deries/</id>
+  <link href="http://ferochera.github.com/deries/categorias/guifi-net/atom.xml" rel="self"/>
+  <link href="http://ferochera.github.com/deries/"/>
+  <updated>2012-03-15T21:48:34+01:00</updated>
+  <id>http://ferochera.github.com/deries/</id>
   <author>
     <name><![CDATA[Fernando Ochera.]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Crear imagen de firmware de Ubiquiti con quagga]]></title>
-    <link href="http://xarx.es/deries/2009/05/15/crear-imagen-de-firmware-de-ubiquiti-con-quagga/"/>
+    <link href="http://ferochera.github.com/deries/2009/05/15/crear-imagen-de-firmware-de-ubiquiti-con-quagga/"/>
     <updated>2009-05-15T00:20:00+02:00</updated>
-    <id>http://xarx.es/deries/2009/05/15/crear-imagen-de-firmware-de-ubiquiti-con-quagga</id>
+    <id>http://ferochera.github.com/deries/2009/05/15/crear-imagen-de-firmware-de-ubiquiti-con-quagga</id>
     <content type="html"><![CDATA[<p>El objetivo es crear un archivo bin con el firmware de ubiquiti para nano5 o wispstation5 modificado de modo que incluya quagga como implementación de enrutamiento dinámico (usando ospf). Dado que el toolchain no ha cambiado desde la versión de inveneo en vez de aplicar sus cambios y compilar lo que haremos es abrir el firmware de inveneo extraer los scripts, librerias y ejecutables y añadirselos a la última versión (actualmente la 3.3.2).</p>
 
 <p>Este procedimiento está basado en la información compartida en las webs <a href="http://dren.dk/ubi.html">http://dren.dk/ubi.html</a> y <a href="http://rotobator.es">http://rotobator.es</a> y a ellos corresponde lo esencial del mérito.</p>
@@ -277,9 +277,9 @@ _esperar unos 10min_
   
   <entry>
     <title type="html"><![CDATA[Cable de red: rígido vs flexible]]></title>
-    <link href="http://xarx.es/deries/2009/02/26/cable-red-rigido-vs-flexible/"/>
+    <link href="http://ferochera.github.com/deries/2009/02/26/cable-red-rigido-vs-flexible/"/>
     <updated>2009-02-26T23:33:00+01:00</updated>
-    <id>http://xarx.es/deries/2009/02/26/cable-red-rigido-vs-flexible</id>
+    <id>http://ferochera.github.com/deries/2009/02/26/cable-red-rigido-vs-flexible</id>
     <content type="html"><![CDATA[<p>He extraido un par de comentarios que pueden ser útiles a la hora de elegir cable de red. La idea es ver que ventajas e inconvenientes tiene el uso de cable rígido y/o cable flexible.</p>
 
 <p>Aunque los fragmentos están en inglés al final he añadido unas conclusiones simples...</p>
@@ -307,9 +307,9 @@ _esperar unos 10min_
   
   <entry>
     <title type="html"><![CDATA[guifi.net a Castelló: La llavor]]></title>
-    <link href="http://xarx.es/deries/2009/02/05/guifi-net-a-castello-la-llavor/"/>
+    <link href="http://ferochera.github.com/deries/2009/02/05/guifi-net-a-castello-la-llavor/"/>
     <updated>2009-02-05T23:33:00+01:00</updated>
-    <id>http://xarx.es/deries/2009/02/05/guifi-net-a-castello-la-llavor</id>
+    <id>http://ferochera.github.com/deries/2009/02/05/guifi-net-a-castello-la-llavor</id>
     <content type="html"><![CDATA[<p>Els vídeos de la jornada dedicada a ruralnet i a guifi.net el dia 15 de desembre de 2008.</p>
 
 <ul>
