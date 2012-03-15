@@ -33,6 +33,8 @@ excerpt_link: "Leer m&aacute;s &rarr;" #    Jekyll & Plugins     #
 search_text: "Buscar"
 blog_nav_text: "Bitácora"
 archives_nav_text: "Archivo"
+contact_nav_text: "Contacto"
+categories_nav_text: "Categorías"
 recent_posts_aside_title: "Entradas recientes"
 github_aside_title: "Repositorios GitHub"
 older_text: "Anteriores"
