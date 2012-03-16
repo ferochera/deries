@@ -18,3 +18,4 @@ Fuera de este blog, hay proyectos o sitios que me interesan o con los que estoy 
 * [Estación meteorológica en el Planetari](http://www.castello.es/archivos/598/img/index.html)
 * [guifi.net en Castelló](http://castello.guifi.net)
 * [Mis proyectos en github](http://github.com/ferochera)
+* [La Tertúlia del Portal](http://tertuliadelportal.es)
