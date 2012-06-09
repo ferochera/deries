@@ -44,7 +44,7 @@ $ rvm install 1.9.3 --with-zlib-dir=$rvm_path/usr --with-openssl-dir=$rvm_path/u
 También instalé en lmde. Al repetir los pasos anteriores me aparecía un error respecto a zlib al usar gem y se solucionó siguiendo las instrucciones de rvm notes (no tengo muy claro si en el puesto en ubuntu ocurrió lo mismo o no)
 
 ```
-$ rvm get head && rvm 1.9.3
+$ rvm get head && rvm install 1.9.3
 $ rvm use 1.9.3 --default
 $ gem install bundler (.gemrc con proxy si toca)
 ```
@@ -155,3 +155,9 @@ Ambos elementos vienen del código de nube de tags de [_tokkonopapa_](https://gi
 La traducción de las fechas no está funcionando correctamente... es como si la función gsub! no hiciese lo que toca ¿? así que he decicido poner el formato a mano mientras averiguo que es lo que ocurre.
 
     format = DAYNAMES_TR[date.wday] +", %d de " + MONTHNAMES_TR[date.mon] + " de %Y"
+
+##Actualización 2..
+
+Para solucionar el error *"RVM is not a function, selecting rubies with 'rvm use ...' will not work."...* se añade la linea siguiente al final del archivo *.bashrc*
+
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
