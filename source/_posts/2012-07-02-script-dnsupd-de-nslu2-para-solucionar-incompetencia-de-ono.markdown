@@ -6,6 +6,7 @@ comments: true
 categories:
 - Cuaderno-Laboratorio
 - mini-servidor
+- ONO
 ---
 
 Mi experiencia con los routers de ONO lleva años siendo mala (sí, ya se... cambia de proveedor!). 

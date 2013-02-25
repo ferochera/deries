@@ -161,3 +161,15 @@ La traducción de las fechas no está funcionando correctamente... es como si la
 Para solucionar el error *"RVM is not a function, selecting rubies with 'rvm use ...' will not work."...* se añade la linea siguiente al final del archivo *.bashrc*
 
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+    
+## Actualización 3..
+
+La documentación de octopress es accesible en la web [octopres.org/docs](http://octopress.org/docs)
+
+De todas formas los pasos para _"bloguear"_ son:
+
+	(bundle exec) rake new_post["title"]
+	_editar archivo markdown creado_
+	rake generate   # Generates posts and pages into the public directory
+	rake watch      # Watches source/ and sass/ for changes and regenerates
+	rake preview    # Watches, and mounts a webserver at http://localhost:4000
